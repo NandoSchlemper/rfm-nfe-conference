@@ -1,26 +1,20 @@
 package internal
 
 import (
-	"fmt"
-	"os"
-
 	"github.com/spf13/cobra"
+
+	"rfm-nfe-cli/internal/services"
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "nfe",
-	Short: "Hugo is a very fast static site generator",
-	Long: `A Fast and Flexible Static Site Generator built with
-                love by spf13 and friends in Go.
-                Complete documentation is available at https://gohugo.io/documentation/`,
-	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("Olá! Sou responsável pelo controle de notas fiscais")
-	},
+	Use:   "nfe-cli",
+	Short: "Hello, i'm nfe controller",
 }
 
-func Execute() {
-	if err := rootCmd.Execute(); err != nil {
-		fmt.Fprintln(os.Stderr, err)
-		os.Exit(1)
-	}
+func Execute() error {
+	return rootCmd.Execute()
+}
+
+func Init() {
+	rootCmd.AddCommand(services.VersionCmd)
 }

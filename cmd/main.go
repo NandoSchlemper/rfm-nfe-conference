@@ -5,5 +5,6 @@ import (
 )
 
 func main() {
+	internal.Init()
 	internal.Execute()
 }
