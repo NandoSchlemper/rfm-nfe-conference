@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"rfm-nfe-cli/internal"
+)
 
 func main() {
-	fmt.Println("Hello worudo")
+	internal.Execute()
 }
